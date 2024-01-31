@@ -33,6 +33,16 @@ def editar_contato(contatos, indice_contatos, novo_nome, novo_telefone, novo_ema
     print(f'O indice {indice_contatos} não existe existe')
   return
 
+def excluir_contato(contatos, indice_contatos):
+  indices_ajustados = indice_contatos - 1
+  if indices_ajustados >= 0 and indices_ajustados < len(contatos):
+    remover = contatos[indices_ajustados]
+    contatos.remove(remover)
+    print('O Contato foi excluído')
+  else:
+    print('O Indice do contato não foi localizado')
+  return
+
 contatos = []
 
 print('Bem-vindo a sua agenda!')
@@ -64,6 +74,10 @@ while True:
     favoritar_contato(contatos, indice)
   elif opcao == 4:
     mostrar_contato(contatos)
+  elif opcao == 5:
+    mostrar_contato(contatos)
+    indice = int(input('Digite o número do contato que deseja favoritar: '))
+    excluir_contato(contatos, indice)
   elif opcao == 6:
     break
 
